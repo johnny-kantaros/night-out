@@ -13,6 +13,7 @@ class Settings(BaseSettings):
 
     GOOGLE_PLACES_API_KEY: str = ""
     FOURSQUARE_API_KEY: str = ""
+    ENABLE_OSM: bool = False
 
 
 settings = Settings()

@@ -22,7 +22,8 @@ class PlaceResolver:
             providers.append(GooglePlacesProvider(settings.GOOGLE_PLACES_API_KEY))
         if settings.FOURSQUARE_API_KEY:
             providers.append(FoursquareProvider(settings.FOURSQUARE_API_KEY))
-        providers.append(OSMProvider())
+        if settings.ENABLE_OSM:
+            providers.append(OSMProvider())
         return cls(providers)
 
     async def search(self, query: str, lat: float, lng: float) -> list[PlaceCandidate]:
